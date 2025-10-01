@@ -19,6 +19,7 @@
       rel="canonical"
       href="https://twojadomena.pl/"
     />
+     <link rel="stylesheet" href="./style.css">
 
     <!-- Open Graph -->
     <meta
@@ -121,253 +122,12 @@
       }
     </script>
 
-    <style>
-      :root {
-        --bg: #f5f7fb;
-        --text: #0f172a;
-        --muted: #475569;
-        --subtle: #64748b;
-        --card: #fff;
-        --accent: #2563eb;
-        --aside-bg: #101a2e;
-        --aside-ink: #e5e7eb;
-        --aside-light:#9ab7f4;
-        --aside-muted: #a3aed0;
-        --radius: 14px;
-        --shadow: 0 8px 28px rgba(2, 6, 23, 0.08);
-        --maxw: 1100px;
-        --s1: 6px;
-        --s2: 10px;
-        --s3: 16px;
-        --s4: 24px;
-        --s5: 32px;
-      }
-      * {
-        box-sizing: border-box;
-        margin:0;
-        padding: 0;
-      }
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-      }
-      body {
-        margin: 0;
-        font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto,
-          Arial, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-      }
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      a {
-        text-decoration: none;
-      }
-      a:hover,
-      a:focus {
-        text-decoration: underline;
-      }
-
-      h1,
-      h2,
-      h3 {
-        line-height: 1.25;
-        margin: 0 0 var(--s3);
-      }
     
-      ul {
-        padding-left: 1.1rem;
-      }
-      p{
-        padding:2px
-      }
-
-      .wrapper {
-        max-width: var(--maxw);
-        margin: clamp(16px, 3vw, 32px) auto;
-        display: grid;
-        grid-template-columns: 320px 1fr;
-        grid-template-areas: "aside main";
-        gap: var(--s5);
-        background: var(--bg);
-        padding: 1px;
-      }
-
-      main {
-        grid-area: main;
-        background: var(--card);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: clamp(20px, 4vw, 44px);
-      }
-      aside {
-        grid-area: aside;
-        background: var(--aside-bg);
-        color: var(--aside-ink);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        padding: clamp(16px, 3.5vw, 28px);
-      }
-       aside .card{
-        border:1px solid rgb(36, 52, 88);
-        box-shadow: 0 8px 20px -6px rgb(36, 52, 88);
-        background: #0e192e;
-      }
-       aside .card:hover{
-        box-shadow: inset 0 2px 6px 0 rgb(36, 52, 88);
-        
-      }
-
-      section {
-        box-shadow: 0 8px 20px -6px rgba(100, 116, 139, 0.25);
-        padding: var(--s4);
-        border-radius: var(--radius);
-        margin: var(--s5) 0;
-      }
-      .job-badge {
-        display: inline-block;
-        font-size: 0.85rem;
-        font-weight: 700;
-        color: var(--accent);
-      }
-      .name {
-        font-weight: 700;
-      }
-      .card {
-        color: var(--muted);
-        font-size: 1rem;
-        box-shadow: 0 8px 20px -6px var(--subtle);
-        border-radius: var(--radius);
-        padding: var(--s2);
-        margin-bottom: var(--s3);
-        transition: transform 5s linear, box-shadow 2s linear;
-      }
-      
-      .card:hover {
-        box-shadow:inset 0 2px 6px 0 var(--subtle);
-      }
-
-      .section-title {
-        font-size: clamp(18px, 2.6vw, 22px);
-        font-weight: 700;
-        color: var(--text);
-      }
-      .item-title {
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 4px;
-      }
-      .item-meta {
-        color: var(--subtle);
-        font-size: 0.9rem;
-        margin-bottom: var(--s2);
-      }
-      .list-dense li {
-        margin-bottom: 8px;
-        color: var(--muted);
-      }
-
-      .projects a {
-        display: block;
-        padding: 10px 12px;
-        border: 1px solid #e8ecf6;
-        border-radius: 10px;
-        background: #fafbff;
-      }
-      .projects a + a {
-        margin-top: 10px;
-      }
-      .projects a:hover {
-        transform: translateY(-1px);
-        border-color: #d9e3ff;
-        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.08);
-        text-decoration: none;
-      }
-
-      .aside-title {
-        color: #fff;
-        font-weight: 700;
-      }
-
-      .aside-text {
-        color:var(--aside-muted);
-        font-size: 0.85rem;
-        margin-bottom: var(--s3);
-      }
-      .aside-text--highline{
-        color:var(--aside-ink);
-        font-weight: 600;
-      }
-      .aside-text--xs{
-        font-size: 0.65rem;
-      }
-
-      .aside-link {
-        color: #dbeafe;
-      }
-      .aside-link:hover {
-        color: #bfdbfe;
-      }
-     
-      .avatar {
-        border-radius: 12px;
-        aspect-ratio: 4/5;
-        object-fit: cover;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-        margin-bottom: var(--s4);
-      }
-      .pill {
-        display: inline-block;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        color: #e2e8f0;
-        padding: 6px 10px;
-        border-radius: 999px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        margin: 4px 6px 0 0;
-        white-space: nowrap;
-      }
-
-      @media (max-width: 900px) {
-        .wrapper {
-          grid-template-columns: 1fr;
-          grid-template-areas:
-            "main"
-            "aside";
-        }
-      }
-
-      @media print {
-        body {
-          background: #fff;
-        }
-        .wrapper {
-          box-shadow: none;
-          padding: 0;
-          gap: 0;
-        }
-        main,
-        aside {
-          box-shadow: none;
-          border-radius: 0;
-        }
-        .projects a {
-          border: 1px solid #ccc;
-          background: #fff;
-          box-shadow: none;
-        }
-      }
-    </style>
   </head>
   <body>
-    <div class="wrapper">
-      <main role="main">
+    <article class="wrapper">
+      <main>
+        <a href="#content" class="skip" id="content">Skip to content</a>
         <header>
           <div class="job-badge">Front-End Developer</div>
           <h1 class="name">Rafał Bobko</h1>
@@ -387,7 +147,7 @@
         >
           <h2 class="section-title">Projects<hr></h2>
           <a href="https://st-system.vercel.app/">
-            <strong>St-System</strong> - Build with Next.js (TS, Tailwind) with a11y-first, responsive glassmorphizm UI, dark/light theme, and subtle CSS animations. Full SEO (Metadata API, dynamic OG), sitemap/robots, PWA manifest, typed, testable components.
+            <strong>St-System</strong> - Built with Next.js (TS, Tailwind) with a11y-first, responsive UI, dark/light theme, and CSS animations and styles. Fully SEO.
               </a>
           </a>
           <a href="https://nicepage-ba5fe.web.app/">
@@ -449,7 +209,7 @@
       >
         <img
           class="avatar"
-          src="https://www.dropbox.com/scl/fi/rk2euib9rzjey7rkwg8q1/20250121_191332.png?rlkey=lpeccjsi3ofaglj6xfruobv1h&st=i4r8foan&dl=1"
+          src="./public/avatar.jpg"
           alt="Rafał Bobko - avatar"
         />
 
