@@ -17,7 +17,11 @@ body {
   color: #111;
   font-size: 16px;
 }
-
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -53,7 +57,8 @@ select {
   --accent: #2563eb;
   --subtle: #64748b;
   --card: #fff;
-  --aside-bg: #101a2e;
+  --card-bg: #13223d;
+  --aside-bg: #233352;
   --aside-ink: #e5e7eb;
   --aside-light: #9ab7f4;
   --aside-muted: #a3aed0;
@@ -66,16 +71,7 @@ select {
   --s4: 24px;
   --s5: 32px;
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
+
 body {
   margin: 0;
   font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial,
@@ -140,7 +136,7 @@ aside {
 aside .card {
   border: 1px solid rgb(36, 52, 88);
   box-shadow: 0 8px 20px -6px rgb(36, 52, 88);
-  background: #0e192e;
+  background: var(--card-bg);
 }
 aside .card:hover {
   box-shadow: inset 0 2px 6px 0 rgb(36, 52, 88);
@@ -168,12 +164,11 @@ section {
   border-radius: var(--radius);
   padding: var(--s2);
   margin-bottom: var(--s3);
-  transition: transform 1.5s ease-in;
+  transition: transform 0.1s ease-in;
 }
 
 .card:hover {
-  box-shadow: 0 2px 6px 0 var(--subtle);
-  scale: 1.01;
+  transform: scale(1.01);
 }
 
 .section-title {
@@ -194,6 +189,7 @@ section {
 .list-dense li {
   margin-bottom: 8px;
   color: var(--muted);
+  list-style-type: disc;
 }
 
 .projects a {
@@ -233,6 +229,8 @@ section {
 
 .aside-link {
   color: #dbeafe;
+  font-weight: 600;
+  font-size: 0.85rem;
 }
 .aside-link:hover {
   color: #bfdbfe;
