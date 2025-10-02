@@ -292,6 +292,15 @@ section {
   }
 }
 
+@media (max-width: 600px) {
+  section {
+    padding: var(--s2);
+  }
+  main {
+    padding: var(--s2);
+  }
+}
+
 @media print {
   body {
     background: #fff;
