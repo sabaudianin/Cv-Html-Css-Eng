@@ -197,7 +197,7 @@ section {
   padding: 10px 12px;
   border: 1px solid #e8ecf6;
   border-radius: 10px;
-  background: #fafbff;
+  box-shadow: 0 4px 10px -6px var(--subtle);
 }
 .projects a + a {
   margin-top: 10px;
@@ -230,7 +230,7 @@ section {
 .aside-link {
   color: #dbeafe;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 .aside-link:hover {
   color: #bfdbfe;
@@ -240,7 +240,7 @@ section {
   border-radius: 12px;
   aspect-ratio: 4/5;
   object-fit: cover;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
   margin-bottom: var(--s4);
 }
 .pill {
