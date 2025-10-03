@@ -107,9 +107,16 @@ p {
   padding: 2px;
 }
 
+.avatar {
+  border-radius: 12px;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+  margin-bottom: var(--s4);
+}
 .wrapper {
   max-width: var(--maxw);
-  margin: clamp(16px, 3vw, 32px) auto;
+  margin: clamp(8px, 10px, 8px) auto;
   display: grid;
   grid-template-columns: 320px 1fr;
   grid-template-areas: "aside main";
@@ -125,21 +132,27 @@ main {
   box-shadow: var(--shadow);
   padding: clamp(20px, 4vw, 44px);
 }
-aside {
-  grid-area: aside;
-  background: var(--aside-bg);
-  color: var(--aside-ink);
+
+.card {
+  color: var(--muted);
+  font-size: 1rem;
+  box-shadow: 0 8px 20px -6px var(--subtle);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: clamp(16px, 3.5vw, 28px);
+  padding: var(--s2);
+  transition: transform 0.1s ease-in;
 }
-aside .card {
-  border: 1px solid rgb(36, 52, 88);
-  box-shadow: 0 8px 20px -6px rgb(36, 52, 88);
-  background: var(--card-bg);
+
+.card:hover {
+  transform: scale(1.01);
 }
-aside .card:hover {
-  box-shadow: inset 0 2px 6px 0 rgb(36, 52, 88);
+
+.job-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+section[aria-labelledby="experience"] > article + article {
+  margin-top: 2rem;
 }
 
 section {
@@ -148,29 +161,6 @@ section {
   border-radius: var(--radius);
   margin: var(--s5) 0;
 }
-.job-badge {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--accent);
-}
-.name {
-  font-weight: 700;
-}
-.card {
-  color: var(--muted);
-  font-size: 1rem;
-  box-shadow: 0 8px 20px -6px var(--subtle);
-  border-radius: var(--radius);
-  padding: var(--s2);
-  margin-bottom: var(--s3);
-  transition: transform 0.1s ease-in;
-}
-
-.card:hover {
-  transform: scale(1.01);
-}
-
 .section-title {
   font-size: clamp(18px, 2.6vw, 22px);
   font-weight: 700;
@@ -208,6 +198,27 @@ section {
   box-shadow: 0 6px 16px rgba(37, 99, 235, 0.08);
   text-decoration: none;
 }
+.name {
+  font-weight: 700;
+}
+
+aside {
+  grid-area: aside;
+  background: var(--aside-bg);
+  color: var(--aside-ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(16px, 3.5vw, 28px);
+}
+aside .card {
+  border: 1px solid rgb(36, 52, 88);
+  box-shadow: 0 8px 20px -6px rgb(36, 52, 88);
+  background: var(--card-bg);
+  margin-bottom: var(--s3);
+}
+aside .card:hover {
+  box-shadow: inset 0 2px 6px 0 rgb(36, 52, 88);
+}
 
 .aside-title {
   color: #fff;
@@ -236,13 +247,6 @@ section {
   color: #bfdbfe;
 }
 
-.avatar {
-  border-radius: 12px;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
-  margin-bottom: var(--s4);
-}
 .pill {
   display: inline-block;
   background: rgba(255, 255, 255, 0.06);
@@ -294,10 +298,18 @@ section {
 
 @media (max-width: 600px) {
   section {
-    padding: var(--s2);
+    padding: 0;
   }
   main {
-    padding: var(--s2);
+    padding: var(--s1);
+  }
+  img {
+    max-width: 75%;
+    display: block;
+    margin: 0 auto;
+  }
+  .card {
+    width: 100%;
   }
 }
 
