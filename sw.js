@@ -2,11 +2,12 @@ const CACHE = "rb-portfolio-v2";
 const ASSETS = [
   "./",
   "./index.html",
+  "./style.css",
   "./favicon.ico",
-  "./favicon-16x16.png",
-  "./favicon-32x32.png",
   "./apple-touch-icon.png",
-  "./og-cover.jpg",
+  "./android-chrome-192x192.png",
+  "./android-chrome-512x512.png",
+  "./avatar.jpg",
 ];
 
 self.addEventListener("install", (e) => {
@@ -32,17 +33,28 @@ self.addEventListener("fetch", (e) => {
   if (request.method !== "GET") return;
 
   e.respondWith(
-    caches.match(request).then((cached) => {
+    (async () => {
+      // 1) Cache-first
+      const cached = await caches.match(request);
       if (cached) return cached;
-      return fetch(request)
-        .then((resp) => {
-          if (resp && resp.status === 200 && resp.type === "basic") {
-            const copy = resp.clone();
-            caches.open(CACHE).then((c) => c.put(request, copy));
-          }
-          return resp;
-        })
-        .catch(() => caches.match("./index.html"));
-    })
+
+      try {
+        const resp = await fetch(request);
+        // 2) Tylko odpowiedzi typu "basic" (tej samej domeny) i 200 — keszujemy
+        if (resp && resp.status === 200 && resp.type === "basic") {
+          const copy = resp.clone();
+          const c = await caches.open(CACHE);
+          c.put(request, copy);
+        }
+        return resp;
+      } catch (err) {
+        // 3) Fallback TYLKO dla nawigacji (czyli żądań dokumentu)
+        if (request.mode === "navigate") {
+          return caches.match("./index.html");
+        }
+        // dla np. favicony — brak fallbacku do HTML
+        return new Response("", { status: 504, statusText: "Offline" });
+      }
+    })()
   );
 });
